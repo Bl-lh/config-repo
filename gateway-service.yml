@@ -17,7 +17,7 @@ spring:
         - id: department-route
           uri: lb://department-service
           predicates:
-            - Path=/campus/api/departments/**
+            - Path=/campus/api/departments, /campus/api/departments/**
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Gateway, gateway-service
@@ -25,7 +25,7 @@ spring:
         - id: teacher-route
           uri: lb://teacher-service
           predicates:
-            - Path=/campus/api/teachers/**
+            - Path=/campus/api/teachers, /campus/api/teachers/**
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Gateway, gateway-service
